@@ -1,3 +1,23 @@
+#Modified 
+added LED signals 
+
+hardware based on
+
+https://github.com/basic4/USB-Rubber-Ducky-Clone-using-Arduino-Leonardo-Beetle/blob/master/Clone_Instructions.pdf
+
+Arduino Compatible microSD Reader module 
+The Arduino CJCMU Beetle Board with its USB connector
+
+	Beetle Pin Marking		SD Reader Pin Marking
+       5V		                    VCC	
+      GND		                    GND	
+      SCK		                    SCL	
+      MO		                    MOSI	
+      MI		                    MISO	
+      D10		                    CS	
+
+planed 3.3V board and sdcard module
+
 # Duckduino-microSD
 Interpreter that runs on an arduino, decodes and executes ducky script on a microSD card.
 
