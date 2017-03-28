@@ -1,9 +1,16 @@
 /*
- * Author: Seytonic
+ * Author: Seytonic modyfied by roblad
  *         https://twitter.com/seytonic
  *         https://www.youtube.com/seytonic
  * GIT:
- *         https://github.com/Seytonic/Duckduino-microSD
+ *         https://github.com/roblad/Duckduino-microSD
+ *         https://github.com/basic4/USB-Rubber-Ducky-Clone-using-Arduino-Leonardo-Beetle/blob/master/Clone_Instructions.pdf
+ *         
+ *         v1.01 Added led signals and optimise soft
+ *
+ *       Long lines of strings may crash the arduino due to taking up too much RAM, if you have a line "STRING ..." over 300 characters 
+ *       then split it into separate lines of strings, this won't affect how your script runs, it just reduces how much of your script 
+ *       is held in memory at any one time.
  */
 
 
@@ -14,30 +21,55 @@
 
 File myFile;
 boolean first = true;
+//define pins according board 
+#define one  A2
+#define two A1
+#define thre A0
+#define four 9
+#define CS 10
+
+
+
 
 void setup() { 
+
+  pinMode(LED_BUILTIN, OUTPUT);
   String dip = ""; // Name of the file that will be opened
 
   // Sets the given pins as switches for the dip switches
-  pinMode(6, INPUT_PULLUP);
-  pinMode(7, INPUT_PULLUP);
-  pinMode(8, INPUT_PULLUP);
-  pinMode(9, INPUT_PULLUP);
+  digitalRead(one);
+  digitalRead(two);
+  digitalRead(thre);
+  
+  pinMode(one, INPUT_PULLUP);
+  pinMode(two, INPUT_PULLUP);
+  pinMode(thre, INPUT_PULLUP);
+  pinMode(four, INPUT_PULLUP);
   
   // Switches are checked, dip string is contructed
-  if (digitalRead(6) == LOW){dip += "1";} else {dip += "0";}
-  if (digitalRead(7) == LOW){dip += "1";} else {dip += "0";}
-  if (digitalRead(8) == LOW){dip += "1";} else {dip += "0";}
-  if (digitalRead(9) == LOW){dip += "1";} else {dip += "0";}
+  if (digitalRead(one) == LOW){dip += "1";} else {dip += "0";}
+  if (digitalRead(two) == LOW){dip += "1";} else {dip += "0";}
+  if (digitalRead(thre) == LOW){dip += "1";} else {dip += "0";}
+  if (digitalRead(four) == LOW){dip += "1";} else {dip += "0";}
 
   dip += ".txt";
 
+delay (10000); //wait for drivers
 
-  if (!SD.begin(4)) {
-    return;
+  if (!SD.begin(CS)) {
+     //no card
+      while(1){
+        digitalWrite(LED_BUILTIN, HIGH);
+        delay(50);
+        digitalWrite(LED_BUILTIN, LOW);
+        delay(50);
+        
+       }
+     return;
   }
   
   // Desired file is opened
+  
   myFile = SD.open(dip);
   if (myFile) {
     Keyboard.begin();
@@ -57,10 +89,30 @@ void setup() {
     Line(line);
     
     myFile.close();
+
+   
+    
   } else {
+    //no file
+          while(1){
+            digitalWrite(13,HIGH);
+            delay(100);
+            digitalWrite(13,LOW);
+            delay(50);
+          } 
   }
 
+       for (byte i = 0; i < 5;i++){ 
+        digitalWrite(LED_BUILTIN, HIGH);
+        delay(500);
+        digitalWrite(LED_BUILTIN, LOW);
+        delay(500);
+        
+     }
   Keyboard.end();
+
+
+  
 }
 
 void Line(String l)
@@ -236,4 +288,17 @@ void Press(String b)
 
 void loop() {
   // nothing happens after setup
+  delay (10000);
+          digitalWrite(13,LOW);
+          delay(250);
+          digitalWrite(13,HIGH);
+          delay(250);
+          digitalWrite(13,LOW);
+  //software_Reset();
 }
+
+//again setup function
+//void software_Reset() // Restarts program from beginning but does not reset the peripherals and registers
+//{
+//asm volatile ("  jmp 0");  
+//}  
