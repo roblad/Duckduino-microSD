@@ -63,5 +63,11 @@ https://github.com/NicoHood/HID
 
     SCRIPT "SYSSLEEP"  causes System.write(SYSTEM_SLEEP) - sleep computer
     SCRIPT "WAKEUP" causes System.write(SYSTEM_WAKE_UP); - wake up computer
+    SCRIPT "SYSPOWER" causes System.write(SYSTEM_POWER_DOWN);
+  
     
-    etc as in source NicoHood/HID
+    etc as in source NicoHood/HID see 
+    
+     \HID\src\HID-APIs  
+     
+     for adding additional keys in function void Press(String b)
