@@ -10,8 +10,8 @@
  * GIT:
  *         https://github.com/roblad/Duckduino-microSD
  *         https://github.com/basic4/USB-Rubber-Ducky-Clone-using-Arduino-Leonardo-Beetle/blob/master/Clone_Instructions.pdf
- *         https://github.com/NicoHood/HID
- *         v1.02 Added led signals and optimise soft
+ *         
+ *         v1.01 Added led signals and optimise soft
  *
  *       Long lines of strings may crash the arduino due to taking up too much RAM, if you have a line "STRING ..." over 300 characters 
  *       then split it into separate lines of strings, this won't affect how your script runs, it just reduces how much of your script 
@@ -32,12 +32,23 @@
 #define four 9
 #define CS 10
 
+#include <avr/wdt.h>
+#define Reset_AVR() wdt_enable(WDTO_1S); while(1) {}
+//void(* resetFunc) (void) = 0;
   File myFile;
   boolean first = true;
 
 void setup() { 
 
-  BootKeyboard.releaseAll();
+ MCUSR = 0;
+ 
+/* Write logical one to WDCE and WDE */
+/* Keep old prescaler setting to prevent unintentional time-out */
+ WDTCSR |= _BV(WDCE) | _BV(WDE);
+ WDTCSR = 0;
+
+ 
+
   pinMode(LED_BUILTIN, OUTPUT);
   String dip = ""; // Name of the file that will be opened
 
@@ -111,10 +122,10 @@ delay (10000); //wait for drivers
 
        for (byte i = 0; i < 6;i++){ 
         digitalWrite(LED_BUILTIN, HIGH);
-        BootKeyboard.write(KEY_NUM_LOCK);
+
         delay(500);
         digitalWrite(LED_BUILTIN, LOW);
-        BootKeyboard.write(KEY_NUM_LOCK);
+
         delay(500);
         
      }
@@ -314,7 +325,6 @@ void Press(String b)
 void loop() {
   // nothing happens after setup
   
-  //Keyboard.write(KEY_F1);
 
   delay (10000);
           digitalWrite(13,LOW);
@@ -322,12 +332,9 @@ void loop() {
           digitalWrite(13,HIGH);
           delay(250);
           digitalWrite(13,LOW);
-          
-  software_Reset();
+  delay (10000);
+   //Reset for some reason
+ Reset_AVR();
 }
 
 //again setup function
-void software_Reset() // Restarts program from beginning but does not reset the peripherals and registers
-{
-asm volatile ("  jmp 0");  
-}  
