@@ -9,12 +9,12 @@ Arduino Compatible microSD Reader module
 The Arduino CJCMU Beetle Board with its USB connector
 
 Beetle Pin Marking		SD Reader Pin Marking
-       5V		                    VCC	
-      GND		                    GND	
-      SCK		                    SCL	
-      MO		                    MOSI	
-      MI		                    MISO	
-      D10		                    CS	
+   5V		                    VCC	
+  GND		                    GND	
+  SCK		                    SCL	
+  MO		                    MOSI	
+  MI		                    MISO	
+  D10		                    CS	
       
       
 DIPs
@@ -27,12 +27,12 @@ DIPs
 RUBY5
       
 Beetle Pin Marking		SD Reader Pin Marking
-       5V		                    VCC	
-      GND		                    GND	
-      SCK		                    SCL	
-      MO		                    MOSI	
-      MI		                    MISO	
-      D11		                    CS
+   5V		                    VCC	
+  GND		                    GND	
+  SCK		                    SCL	
+  MO		                    MOSI	
+  MI		                    MISO	
+  D10		                    CS	
       
 DIPs
 
