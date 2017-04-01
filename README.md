@@ -1,4 +1,4 @@
-#Modified 
+## Modification 
 added LED signals 
 
 hardware based on
@@ -8,13 +8,40 @@ https://github.com/basic4/USB-Rubber-Ducky-Clone-using-Arduino-Leonardo-Beetle/b
 Arduino Compatible microSD Reader module 
 The Arduino CJCMU Beetle Board with its USB connector
 
-	Beetle Pin Marking		SD Reader Pin Marking
+Beetle Pin Marking		SD Reader Pin Marking
        5V		                    VCC	
       GND		                    GND	
       SCK		                    SCL	
       MO		                    MOSI	
       MI		                    MISO	
       D10		                    CS	
+      
+      
+DIPs
+
+ one  A2
+ two  A1
+ thre A0
+ four D9
+      
+RUBY5
+      
+Beetle Pin Marking		SD Reader Pin Marking
+       5V		                    VCC	
+      GND		                    GND	
+      SCK		                    SCL	
+      MO		                    MOSI	
+      MI		                    MISO	
+      D11		                    CS
+      
+DIPs
+
+ one  A2
+ two  A1
+ thre A0
+ four D9
+ five D10
+ 
 
 planed 3.3V board and sdcard module
 
@@ -56,7 +83,7 @@ The following duckyscript features are not yet implemented: DEFAULT_DELAY, REPLA
 
 This has only been tested on the following <a href="https://www.amazon.co.uk/Micro-Adapter-Reader-Module-Arduino/dp/B00NNDBIRK">microSD module</a>, I'm sure others will work, though no guarantees.
 
-#Improve keyboard support for system boot bios keyboard
+## Improve keyboard support for system boot bios keyboard
 
 https://github.com/NicoHood/HID
 
