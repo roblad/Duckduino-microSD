@@ -1,3 +1,15 @@
+
+ * Author: Seytonic modyfied by roblad
+ *         https://twitter.com/seytonic
+ *         https://www.youtube.com/seytonic
+ * GIT:
+ *         https://github.com/roblad/Duckduino-microSD
+ *         https://github.com/basic4/USB-Rubber-Ducky-Clone-using-Arduino-Leonardo-Beetle/blob/master/Clone_Instructions.pdf
+ *         https://github.com/NicoHood/HID
+ *         https://github.com/roblad/Duckduino-microSD/blob/master/README.md
+
+
+
 ## Scripts:
 
 https://github.com/hak5darren/USB-Rubber-Ducky/wiki
