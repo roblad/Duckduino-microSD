@@ -87,6 +87,8 @@ delay (10000); //wait for drivers
   
   // Desired file is opened
   
+  generatehelpFile();
+  
   myFile = SD.open(dip);
   if (myFile) {
     Keyboard.begin();
@@ -136,6 +138,60 @@ delay (10000); //wait for drivers
 
   
 }
+
+
+//create help on SDcard
+void generatehelpFile() {
+      
+
+  
+  if (! SD.exists("readme.txt")) { 
+   
+   
+   
+   File myFile0 = SD.open("readme.txt", FILE_WRITE);
+
+    delay (50);
+   
+    if (myFile0) {
+
+      myFile0.println(F(""));
+      delay (50);
+      myFile0.println(F("There is bad usb help file, created when first time SD card is inserted to bad USB (do wlamywaczki)"));
+      delay (50);
+      myFile0.println(F(""));
+      delay (50);
+      myFile0.println(F("Wlamywaczka by RL check link for scripting: https://github.com/hak5darren/USB-Rubber-Ducky"));
+      delay (50);
+      myFile0.println(F("Check also my GIT source for additional info: https://github.com/roblad/Duckduino-microSD"));
+      delay (50);
+      myFile0.println(F("There is needed script files creation in SD card according to four DIP switches sequence set"));
+      delay (50);
+      myFile0.println(F("Because there are 4 DIP (or 5 - five is for repeating execution of script) you have to create files:"));
+      delay (50);
+      myFile0.println(F("4 DIPs = 2^4 gives 16 files - 0000.txt, 0001.txt, 0011.txt till 1111.txt"));
+      delay (50);
+      myFile0.println(F("All nescesary info you will find in GITs i.e. scripting language"));
+      delay (50);
+      myFile0.println(F("I added additional script commands according HID-Project.h see additional info in my GIT for more detailes."));
+      delay (50);
+      myFile0.println(F(""));
+      delay (50);
+      myFile0.println(F("Do not use for bad reason :-) and ENJOY !!!"));
+      delay (50);
+      myFile0.println(F(""));
+      delay (50);
+      myFile0.println(F("Copy rights R.L."));
+      delay (50);
+    // close the file:
+    myFile0.close();
+    delay (200);
+    }
+  } 
+}
+
+//function for scripts
+
 
 void Line(String l)
 {
@@ -318,7 +374,11 @@ void Press(String b)
   {
     System.write(SYSTEM_POWER_DOWN);
   } 
-   
+   else
+  {
+   Keyboard.press(NULL);
+  }
+  
    
 }
 
@@ -334,7 +394,7 @@ void loop() {
           digitalWrite(13,LOW);
   delay (10000);
    //Reset for some reason
- Reset_AVR();
+ //Reset_AVR();
 }
 
 //again setup function
