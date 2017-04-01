@@ -8,17 +8,17 @@ https://github.com/basic4/USB-Rubber-Ducky-Clone-using-Arduino-Leonardo-Beetle/b
 Arduino Compatible microSD Reader module 
 The Arduino CJCMU Beetle Board with its USB connector
 
-	Beetle Pin Marking		SD Reader Pin Marking
-            5V		               VCC	
+	Beetle Pin Marking	SD Reader Pin Marking
+            5V		            VCC	
             GND		            GND	
             SCK		            SCL	
-            MO		               MOSI	
-            MI		               MISO	
+            MO		            MOSI	
+            MI		            MISO	
             D10		            CS	
 
       
       
-DIPs
+DIPs:
 
  one  A2, 
  two  A1, 
@@ -27,12 +27,12 @@ DIPs
       
 RUBY5
       
-	Beetle Pin Marking		SD Reader Pin Marking
-            5V		               VCC	
+	Beetle Pin Marking	SD Reader Pin Marking
+            5V		            VCC	
             GND		            GND	
             SCK		            SCL	
-            MO		               MOSI	
-            MI		               MISO	
+            MO		            MOSI	
+            MI		            MISO	
             D11		            CS	
       
 DIPs: 
@@ -52,7 +52,7 @@ Interpreter that runs on an arduino, decodes and executes ducky script on a micr
 ## Benefits Over Alternatives
 Once the arduino has been programmed, you need only deal with ducky scripts on a microSD card. No reprogramming the arduino to change scripts!
 
-## Setup
+## Setup for Leonardo or micro
 
 [![video link](http://imgur.com/2a1fe002-68fa-4046-b3a8-83e6fa2a22fc)](https://www.youtube.com/watch?v=ksvo1WDYQ7s)
 
