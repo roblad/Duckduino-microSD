@@ -8,39 +8,40 @@ https://github.com/basic4/USB-Rubber-Ducky-Clone-using-Arduino-Leonardo-Beetle/b
 Arduino Compatible microSD Reader module 
 The Arduino CJCMU Beetle Board with its USB connector
 
-Beetle Pin Marking		SD Reader Pin Marking
-   5V		                    VCC	
-  GND		                    GND	
-  SCK		                    SCL	
-  MO		                    MOSI	
-  MI		                    MISO	
-  D10		                    CS	
+	Beetle Pin Marking		SD Reader Pin Marking
+            5V		               VCC	
+            GND		            GND	
+            SCK		            SCL	
+            MO		               MOSI	
+            MI		               MISO	
+            D10		            CS	
+
       
       
 DIPs
 
- one  A2
- two  A1
- thre A0
- four D9
+ one  A2, 
+ two  A1, 
+ thre A0, 
+ four D9 
       
 RUBY5
       
-Beetle Pin Marking		SD Reader Pin Marking
-   5V		                    VCC	
-  GND		                    GND	
-  SCK		                    SCL	
-  MO		                    MOSI	
-  MI		                    MISO	
-  D10		                    CS	
+	Beetle Pin Marking		SD Reader Pin Marking
+            5V		               VCC	
+            GND		            GND	
+            SCK		            SCL	
+            MO		               MOSI	
+            MI		               MISO	
+            D11		            CS	
       
-DIPs
+DIPs: 
 
- one  A2
- two  A1
- thre A0
- four D9
- five D10
+ one  A2, 
+ two  A1, 
+ thre A0, 
+ four D9, 
+ five D10 
  
 
 planed 3.3V board and sdcard module
