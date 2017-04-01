@@ -1,4 +1,15 @@
+## Scripts:
+
+https://github.com/hak5darren/USB-Rubber-Ducky/wiki
+
+
 ## Modification 
+
+Scripts:
+
+https://github.com/hak5darren/USB-Rubber-Ducky/wiki
+
+
 added LED signals 
 
 hardware based on
