@@ -3,6 +3,7 @@
 
 
 
+
 /*
  * Author: Seytonic modyfied by roblad
  *         https://twitter.com/seytonic
@@ -10,6 +11,8 @@
  * GIT:
  *         https://github.com/roblad/Duckduino-microSD
  *         https://github.com/basic4/USB-Rubber-Ducky-Clone-using-Arduino-Leonardo-Beetle/blob/master/Clone_Instructions.pdf
+ *         https://github.com/NicoHood/HID
+ *         https://github.com/roblad/Duckduino-microSD/blob/master/README.md
  *         
  *         v1.01 Added led signals and optimise soft
  *
@@ -149,7 +152,7 @@ void generatehelpFile() {
       
 
   
-  if (! SD.exists("readme.txt")) { 
+  if (! SD.exists("readme.txt") || ! SD.exists("0000.txt") ) { 
    
    
    
@@ -161,13 +164,13 @@ void generatehelpFile() {
 
       myFile0.println(F(""));
       delay (50);
-      myFile0.println(F("There is bad usb help file, created when first time SD card is inserted to bad USB (do wlamywaczki)"));
+      myFile0.println(F("There is bad usb help file, created when first time SD card is inserted to bad USB module (do wlamywaczki)"));
       delay (50);
       myFile0.println(F(""));
       delay (50);
       myFile0.println(F("Wlamywaczka by RL check link for scripting: https://github.com/hak5darren/USB-Rubber-Ducky"));
       delay (50);
-      myFile0.println(F("Check also my GIT source for additional info: https://github.com/roblad/Duckduino-microSD"));
+      myFile0.println(F("Check also my GITHUB source for additional info: https://github.com/roblad/Duckduino-microSD"));
       delay (50);
       myFile0.println(F("There is needed script files creation in SD card according to four DIP switches sequence set"));
       delay (50);
@@ -175,10 +178,11 @@ void generatehelpFile() {
       delay (50);
       myFile0.println(F("4 DIPs = 2^4 gives 16 files - 0000.txt, 0001.txt, 0011.txt till 1111.txt"));
       delay (50);
-      myFile0.println(F("All nescesary info you will find in GITs i.e. scripting language"));
+      myFile0.println(F("All necessary info you will find in GITs i.e. scripting language"));
       delay (50);
-      myFile0.println(F("I added additional script commands according HID-Project.h see additional info in my GIT for more detailes."));
+      myFile0.println(F("I added additional script commands according HID-Project.h see additional info in my GIT for more details."));
       delay (50);
+
       myFile0.println(F(""));
       delay (50);
       myFile0.println(F("Do not use for bad reason :-) and ENJOY !!!"));
@@ -190,6 +194,119 @@ void generatehelpFile() {
     // close the file:
     myFile0.close();
     delay (200);
+    }
+    delay (1000);
+    File myFile1 = SD.open("0000.txt", FILE_WRITE);
+
+    delay (50);
+   
+    if (myFile1) {
+      
+      myFile1.println(F("DELAY 1500"));
+      delay (50);
+      myFile1.println(F("GUI r"));
+      delay (50);
+      myFile1.println(F("DELAY 500"));
+      delay (50);
+      myFile1.println(F("STRING notepad"));
+      delay (50);
+      myFile1.println(F("DELAY 500"));
+      delay (50);
+      myFile1.println(F("ENTER"));
+          delay (50);
+          myFile1.println(F("DELAY 300"));
+          delay (50);
+          myFile1.println(F("STRING  "));
+          delay (50);
+          myFile1.println(F("ENTER"));
+          delay (50);
+          myFile1.println(F("DELAY 200"));
+          delay (50);
+          myFile1.println(F("STRING There is bad usb help file, created when first time SD card is inserted to bad USB module (do wlamywaczki)"));
+          delay (50);
+          myFile1.println(F("ENTER"));
+          delay (50);
+          myFile1.println(F("DELAY 200"));
+          delay (50);
+          myFile1.println(F("STRING  ..."));
+          delay (50);
+          myFile1.println(F("ENTER"));
+          delay (50);
+          myFile1.println(F("DELAY 200"));
+          delay (50);
+          myFile1.println(F("STRING Wlamywaczka by RL check link for scripting: https://github.com/hak5darren/USB-Rubber-Ducky"));
+          delay (50);
+          myFile1.println(F("ENTER"));
+          delay (50);
+          myFile1.println(F("DELAY 200"));
+          delay (50);
+          myFile1.println(F("STRING Check also my GITHUB source for additional info: https://github.com/roblad/Duckduino-microSD"));
+          delay (50);
+          myFile1.println(F("ENTER"));
+          delay (50);
+          myFile1.println(F("DELAY 200"));
+          delay (50);
+          myFile1.println(F("STRING There is needed script files creation in SD card according to four DIP switches sequence set"));
+          delay (50);
+          myFile1.println(F("ENTER"));
+          delay (50);
+          myFile1.println(F("DELAY 200"));
+          delay (50);
+          myFile1.println(F("STRING Because there are 4 DIP (or 5 - five is for repeating execution of script) you have to create files:"));
+          delay (50);
+          myFile1.println(F("ENTER"));
+          delay (50);
+          myFile1.println(F("DELAY 200"));
+          delay (50);
+          myFile1.println(F("STRING 4 DIPs = 2^4 gives 16 files - 0000.txt, 0001.txt, 0011.txt till 1111.txt"));
+          delay (50);
+          myFile1.println(F("ENTER"));
+          delay (50);
+          myFile1.println(F("DELAY 200"));
+          delay (50);
+          myFile1.println(F("STRING All necessary info you will find in GITs i.e. scripting language"));
+          delay (50);
+          myFile1.println(F("ENTER"));
+          delay (50);
+          myFile1.println(F("DELAY 200"));
+          delay (50);
+          myFile1.println(F("STRING I added additional script commands according HID-Project.h see additional info in my GIT for more details."));
+          delay (50);          
+          myFile1.println(F("ENTER"));
+          delay (50);
+          myFile1.println(F("DELAY 200"));
+          delay (50);
+          myFile1.println(F("STRING  "));
+          delay (50);
+          myFile1.println(F("ENTER"));
+          delay (50);
+          myFile1.println(F("DELAY 200"));
+          delay (50);
+          myFile1.println(F("STRING Do not use for bad reason :-) and ENJOY !!!"));
+          delay (50);
+          myFile1.println(F("ENTER"));
+          delay (50);
+          myFile1.println(F("DELAY 200"));
+          delay (50);
+          myFile1.println(F("STRING  "));
+          delay (50);
+          myFile1.println(F("ENTER"));
+          delay (50);
+          myFile1.println(F("DELAY 200"));
+          delay (50);
+          myFile1.println(F("ENTER"));
+          delay (50);
+          myFile1.println(F("DELAY 200"));
+          delay (50);
+          myFile1.println(F("STRING Copy rights R.L."));
+          delay (50);
+          myFile1.println(F("ENTER"));
+          delay (50);
+          myFile1.println(F("DELAY 200"));
+          delay (50);
+      // close the file:
+          myFile1.close();
+      delay (200);
     }
   } 
 }
